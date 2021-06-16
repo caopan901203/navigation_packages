@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -std=c++11 -Wall -g  -shared -Wl,-soname,libgtest.so -o libgtest.so CMakeFiles/gtest.dir/src/gtest-all.cc.o  -L/home/caopan/navigation_move_base/tf_broadcaster/build/gtest/googlemock/gtest/src -Wl,-rpath,/home/caopan/navigation_move_base/tf_broadcaster/build/gtest/googlemock/gtest/src -lpthread 
