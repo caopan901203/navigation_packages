@@ -1,0 +1,22 @@
+<launch>
+  <!-- params -->
+  <param name="use_sim_time" value="true"/>
+
+  <!-- Arguments -->
+  <arg name="map_file" default="/home/caopan/navigation_packages/simulator/maps/dongchuang_map.yaml"/>
+
+  <!-- Map server -->
+  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
+
+  <!-- stage -->
+  <node name ="stageros" pkg ="stageros" type ="stageros" args ="/home/caopan/navigation_packages/simulator/stage/dongchuang.world"/>
+
+  <!-- map_to_odom -->
+  <node name ="tf_broadcaster" pkg ="tf_broadcaster" type ="tf_broadcaster"/>
+
+  <!-- move_base -->
+  <node pkg="move_base" name="move_base" type="move_base" />
+
+  <!-- rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d /home/caopan/navigation_packages/simulator/rviz/navigation.rviz" required="true" />
+</launch>

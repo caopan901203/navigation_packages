@@ -147,6 +147,7 @@ namespace move_base {
     }
 
     // 开始更新costmap：
+    std::cout<<"move base 主节点开始进行代价地图初始化"<<std::endl;
     planner_costmap_ros_->start();
     controller_costmap_ros_->start();
 
@@ -355,6 +356,7 @@ namespace move_base {
 
   //其中，MoveBase::planService（）函数写了全局规划的策略，以多少距离向外搜索路径
   bool MoveBase::planService(nav_msgs::GetPlan::Request &req, nav_msgs::GetPlan::Response &resp){
+    std::cout<<"进入全局规划服务端"<<std::endl;
     //move base 处于激活的状态
     if(as_->isActive()){
       ROS_ERROR("move_base must be in an inactive state to make a plan for an external user");
@@ -593,7 +595,8 @@ namespace move_base {
   //主要作用是调用全局路径规划获取路径，同时保证规划的周期性以及规划超时清除goal
   void MoveBase::planThread()
   {
-    ROS_DEBUG_NAMED("move_base_plan_thread","Starting planner thread...");
+    //ROS_DEBUG_NAMED("move_base_plan_thread","Starting planner thread...");
+    std::cout<<"进入全局规划线程"<<std::endl;
     ros::NodeHandle n;
     ros::Timer timer;
     bool wait_for_wake = false;

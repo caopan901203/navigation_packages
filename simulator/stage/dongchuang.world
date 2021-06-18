@@ -26,7 +26,7 @@ define bz_robot position
   #里程计误差
   odom_error [0.03 0.03 999999 999999 999999 0.2]
 
-  size [ 1.2 0.8 0.6 ]
+  size [ 1.0 0.6 0.8 ]
   # correct center of rotation:
   origin [ 0.0 0.0 0.0 0.0]
   gui_nose 1
@@ -55,18 +55,18 @@ define floorplan model
 )
 
 # set the resolution of the underlying raytrace model in meters
-resolution 0.2
+resolution 0.05
 
 interval_sim 100  # simulation timestep in milliseconds
 #interval_real 100  # real-time interval between simulation updates in milliseconds 
 
 window
 ( 
-  size [ 745.000 448.000 ] 
-#center [327.990 371.960] 
-#rotate [ 0.000 -1.560 ]
-  rotate [ 0.000 0.0 ]
-  scale 18.806 
+  size [745.000 448.000] 
+  #center [327.990 371.960] 
+  #rotate [ 0.000 -1.560 ]
+  rotate [ 0.0 0.0 ]
+  scale 1.806 
 )
 
 # load an environment bitmap

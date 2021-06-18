@@ -174,7 +174,7 @@ void StaticLayer::incomingMap(const nav_msgs::OccupancyGridConstPtr& new_map)
   unsigned int size_x = new_map->info.width, size_y = new_map->info.height;
 
   ROS_DEBUG("Received a %d X %d map at %f m/pix", size_x, size_y, new_map->info.resolution);
-
+  std::cout<<"更新静态地图"<<std::endl;
    //如果master map的尺寸、分辨率或原点与获取到的地图不匹配，重新设置master map
   Costmap2D* master = layered_costmap_->getCostmap();
   if (!layered_costmap_->isRolling() &&

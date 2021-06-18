@@ -122,7 +122,9 @@ Costmap2DROS::Costmap2DROS(const std::string& name, tf2_ros::Buffer& tf) :
   if (!private_nh.hasParam("plugins"))
   {
     loadOldParameters(private_nh);
-  } else {
+  }
+  else
+  {
     warnForOldParameters(private_nh);
   }
   //加入各个层次的地图

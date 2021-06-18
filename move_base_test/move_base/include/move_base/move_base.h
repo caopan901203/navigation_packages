@@ -197,7 +197,11 @@ namespace move_base {
       unsigned int recovery_index_;
 
       geometry_msgs::PoseStamped global_pose_;
+      //controller_frequency_ 向底盘控制移动话题cmd_vel发送命令的频率.
+      //planner_frequency_ 全局规划操作的执行频率.如果设置为0.0,则全局规划器仅在接收到新的目标点或者局部规划器报告路径堵塞时才会重新执行规划操作.
       double planner_frequency_, controller_frequency_, inscribed_radius_, circumscribed_radius_;
+      //controller_patience 在空间清理操作执行前,控制器花多长时间等有效控制下发.
+      //planner_patience_ 在空间清理操作执行前,留给规划器多长时间来找出一条有效规划.
       double planner_patience_, controller_patience_;
       int32_t max_planning_retries_;
       uint32_t planning_retries_;
@@ -207,6 +211,8 @@ namespace move_base {
       ros::ServiceServer make_plan_srv_, clear_costmaps_srv_;
       bool shutdown_costmaps_, clearing_rotation_allowed_, recovery_behavior_enabled_;
       bool make_plan_clear_costmap_, make_plan_add_unreachable_goal_;
+      //oscillation_timeout_执行修复机制前,允许振荡的时长.
+      //oscillation_distance_来回运动在多大距离以上不会被认为是振荡.
       double oscillation_timeout_, oscillation_distance_;
 
       MoveBaseState state_;

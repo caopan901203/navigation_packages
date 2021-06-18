@@ -129,6 +129,7 @@ class MapServer
           ROS_DEBUG("The map does not contain a mode tag or it is invalid... assuming Trinary");
           mode = TRINARY;
         }
+
         try {
           doc["origin"][0] >> origin[0];
           doc["origin"][1] >> origin[1];
@@ -137,6 +138,7 @@ class MapServer
           ROS_ERROR("The map does not contain an origin tag or it is invalid.");
           exit(-1);
         }
+
         try {
           doc["image"] >> mapfname;
           // TODO: make this path-handling more robust
@@ -236,16 +238,18 @@ class MapServer
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "map_server", ros::init_options::AnonymousName);
-  if(argc != 3 && argc != 2)
-  {
-    ROS_ERROR("%s", USAGE);
-    exit(-1);
-  }
-  if (argc != 2) {
-    ROS_WARN("Using deprecated map server interface. Please switch to new interface.");
-  }
-  std::string fname(argv[1]);
-  double res = (argc == 2) ? 0.0 : atof(argv[2]);
+  //  if(argc != 3 && argc != 2)
+  //  {
+  //    ROS_ERROR("%s", USAGE);
+  //    exit(-1);
+  //  }
+  //  if (argc != 2) {
+  //    ROS_WARN("Using deprecated map server interface. Please switch to new interface.");
+  //  }
+  //  std::string fname(argv[1]);
+  //  double res = (argc == 2) ? 0.0 : atof(argv[2]);
+  std::string fname("/home/caopan/navigation_packages/simulator/maps/dongchuang_map.yaml");
+  double res = 0.0;
 
   try
   {
